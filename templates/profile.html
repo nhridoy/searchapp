@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title_block %}
+    {{ user }}
+{% endblock %}
+
+{% block body_block %}
+    <div class="py-4 flex gap-4 flex-col items-center justify-center">
+        <div class="w-72 md:w-80 lg:w-96"><img src="{{ user.user_profile.profile_pic.url }}" alt=""
+                                        class=" w-full object-fit"></div>
+        <div class="flex flex-col">
+            <div class=""><h2 class="font-bold text-xl">Full Name: <span
+                    class="font-normal">{{ user.user_profile.full_name }}</span></h2></div>
+            <div class=""><h2 class="font-bold text-xl">Email: <span class="font-normal">{{ user.email }}</span></h2>
+            </div>
+            <div class=""><h2 class="font-bold text-xl">Username: <span class="font-normal">{{ user.username }}</span>
+            </h2></div>
+        </div>
+        <a href="{% url 'profileapp:edit-profile' %}" class="py-3 px-4 bg-indigo-900 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-md outline-none">Edit Profile</a>
+    </div>
+{% endblock %}

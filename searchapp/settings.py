@@ -45,11 +45,13 @@ INSTALLED_APPS = [
     'userprofile',
 
     'crispy_forms',
+    'crispy_tailwind',
     'django_cleanup.apps.CleanupConfig'
 ]
 
 # Crispy Form Settings
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,7 +69,7 @@ ROOT_URLCONF = 'searchapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -146,3 +148,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Media
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+# Login
+LOGIN_URL = '/profile/login/'
+
+AUTH_USER_MODEL = 'userprofile.User'
