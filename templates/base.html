@@ -1,0 +1,32 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title_block %}
+        Search Your Favourite Movies and TV Shows
+    {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'fonts/css/all.min.css' %}">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,400&display=swap"
+          rel="stylesheet">
+    {% block style_block %}
+
+    {% endblock %}
+</head>
+<body class="text-gray-800 text-sm transition tracking-wide" style="font-family: 'Poppins', sans-serif;">
+
+{% block body_block %}
+
+{% endblock %}
+
+{% block script_block %}
+
+{% endblock %}
+</body>
+</html>
