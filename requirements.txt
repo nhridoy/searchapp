@@ -1,0 +1,7 @@
+Django~=3.2.6
+django-cleanup
+django-crispy-forms
+whitenoise
+psycopg2
+gunicorn
+pillow
