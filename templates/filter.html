@@ -1,4 +1,4 @@
-<div class="container mx-auto">
+<div class="container mx-auto px-4">
     <h2 class="text-xl font-semibold py-4">Filter Result</h2>
     <div class="border checks rounded-md p-4 flex justify-around">
         <div class="form-group">
@@ -18,7 +18,7 @@
     <h2 class="text-xl">Or</h2>
     <hr>
     <h2 class="text-xl font-normal py-4">Filter By Date</h2>
-    <form id="add" method="POST">
+    <form id="add" method="POST" class="flex flex-col md:flex-row gap-4">
         <input type="date" name="startDate" class="px-2 py-2 border" required>
         <input type="date" name="endDate" class="px-2 py-2 border" required>
         {% csrf_token %}

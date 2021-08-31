@@ -17,17 +17,17 @@ $(document).ready(function () {
         	dataType:'json',
         	beforeSend:function(){
         		$(".result").empty();
-        		$(".result").append(`<h2 class='font-semibold text-center text-2xl'>Loading......</h2>`);
+        		$(".result").append(`<h2 class='font-semibold text-center text-2xl p-4 border rounded-md'>Loading......</h2>`);
         	},
         	success:function(res){
         		// console.log(res.data);
         		$(".result").empty();
                 for (let i = 0; i<res.data.length; i++){
                     let temp = res.data[i];
-                    let html = `<div class="border rounded-md flex items-center justify-between p-6">
+                    let html = `<div class="border rounded-md flex flex-col md:flex-row gap-2 items-center justify-between p-6">
                                         <b>${temp.search_keyword}</b>
                                         <b>Total Result: ${temp.search_results}</b>
-                                        <b>${temp.search_date}</b>
+                                        <b>${moment((new Date(temp.search_date))).format('MMM. DD, YYYY, h:mm a.')}</b>
                                     </div>`
                     $(".result").append(html);
 

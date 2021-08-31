@@ -1,17 +1,20 @@
 {% load static %}
-<div class="w-full bg-indigo-900 p-3 flex items-center justify-between">
+<div class="w-full bg-indigo-900 p-3 flex md:items-center justify-between">
     <div class="logo w-10">
         <a href="{% url 'searchapp:index' %}"><img src="{% static 'images/favicon.svg' %}" alt=""></a>
     </div>
-    <div class="flex items-center justify-end gap-4 text-white">
+    <div class="text-white bars cursor-pointer md:hidden">
+        <i class="fal fa-bars text-xl"></i>
+    </div>
+    <div class="menus flex flex-col items-end fixed top-10 -right-80 z-10 transform-gpu -translate-x transition-all ease-in-out duration-300 bg-white text-indigo-900 h-full p-3 md:static md:top-auto md:right-0 md:bg-transparent md:text-white md:h-auto md:p-0 md:flex-row md:items-center md:justify-end md:gap-4">
         {% if user.is_authenticated %}
-            <a href="{% url 'profileapp:profile' %}" class="">Profile</a>
-            <a href="{% url 'profileapp:change-password' %}" class="">Change Password</a>
-            <a href="{% url 'searchapp:search-history' %}" class="px-2 py-1 rounded-md bg-white hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-indigo-900">Search History</a>
-            <a href="{% url 'profileapp:logout' %}" class="">Logout</a>
+            <a href="{% url 'profileapp:profile' %}" class="w-full border-b px-2 py-1 rounded-md md:w-auto md:border-b-0 md:px-0 md:py-0">Profile</a>
+            <a href="{% url 'profileapp:change-password' %}" class="w-full border-b px-2 py-1 rounded-md md:w-auto md:border-b-0 md:px-0 md:py-0">Change Password</a>
+            <a href="{% url 'searchapp:search-history' %}" class="w-full border-b px-2 py-1 rounded-md md:w-auto md:border-b-0 bg-indigo-900 text-white md:bg-white md:hover:bg-gray-100 md:focus:bg-gray-100 focus:outline-none md:text-indigo-900">Search History</a>
+            <a href="{% url 'profileapp:logout' %}" class="w-full border-b px-2 py-1 rounded-md md:w-auto md:border-b-0 md:px-0 md:py-0">Logout</a>
         {% else %}
-            <a href="{% url 'profileapp:login' %}" class="">Login</a>
-            <a href="{% url 'profileapp:register' %}" class="">Register</a>
+            <a href="{% url 'profileapp:login' %}" class="w-full border-b px-2 py-1 rounded-md md:w-auto md:border-b-0 md:px-0 md:py-0">Login</a>
+            <a href="{% url 'profileapp:register' %}" class="w-full border-b px-2 py-1 rounded-md md:w-auto md:border-b-0 md:px-0 md:py-0">Register</a>
         {% endif %}
     </div>
 </div>

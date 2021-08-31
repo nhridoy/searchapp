@@ -2,23 +2,21 @@
 {% load static %}
 
 {% block title_block %}
-
+    {{ user }} | Search History
 {% endblock %}
 
 {% block body_block %}
     {% include 'filter.html' %}
-    <div class="container mx-auto">
+    <div class="container mx-auto px-4">
         <h2 class="font-semibold text-xl py-4">All Searched Items</h2>
         <div class="flex flex-col gap-4 result">
             {% for search in search_history %}
-                <div class="border rounded-md flex items-center justify-between p-6">
+                <div class="border rounded-md flex flex-col md:flex-row gap-2 items-center justify-between p-6">
                     <b>{{ search.search_keyword }}</b>
                     <b>Total Result: {{ search.search_results }}</b>
                     <b>{{ search.search_date }}</b>
                 </div>
             {% endfor %}
-
-
         </div>
     </div>
 
@@ -38,7 +36,7 @@
                 data: serializedData,
                 beforeSend:function(){
         		$(".result").empty();
-        		$(".result").append(`<h2 class='font-semibold text-center text-2xl'>Loading......</h2>`);
+        		$(".result").append(`<h2 class='font-semibold text-center text-2xl p-4 border rounded-md'>Loading......</h2>`);
         	},
                 success: function (response) {
                     $(".result").empty();
@@ -50,10 +48,10 @@
                     }
                     for (var item in response.data){
                         let temp = response.data[item];
-                    let html = `<div class="border rounded-md flex items-center justify-between p-6">
+                    let html = `<div class="border rounded-md flex flex-col md:flex-row gap-2 items-center justify-between p-6">
                                         <b>${temp.search_keyword}</b>
                                         <b>Total Result: ${temp.search_results}</b>
-                                        <b>${temp.search_date}</b>
+                                        <b>${moment((new Date(temp.search_date))).format('MMM. DD, YYYY, h:mm a.')}</b>
                                     </div>`
                     $(".result").append(html);
                     }
