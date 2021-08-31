@@ -22,5 +22,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('searchmovies.urls')),
     path('profile/', include('userprofile.urls')),
-    path('', include('pwa.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
