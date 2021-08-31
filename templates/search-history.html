@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+
+{% endblock %}
+
+{% block body_block %}
+    {% include 'filter.html' %}
+    <div class="container mx-auto">
+        <h2 class="font-semibold text-xl py-4">All Searched Items</h2>
+        <div class="flex flex-col gap-4 result">
+            {% for search in search_history %}
+                <div class="border rounded-md flex items-center justify-between p-6">
+                    <b>{{ search.search_keyword }}</b>
+                    <b>Total Result: {{ search.search_results }}</b>
+                    <b>{{ search.search_date }}</b>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script_block %}
+    <script>
+        // Form Submitting without page loading
+        $("#add").submit(function (e) {
+            // prevent from normal form behaviour
+            e.preventDefault();
+            // serialize the form data
+            var serializedData = $(this).serialize();
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'searchapp:filter' %}",
+                data: serializedData,
+                beforeSend:function(){
+        		$(".result").empty();
+        		$(".result").append(`<h2 class='font-semibold text-center text-2xl'>Loading......</h2>`);
+        	},
+                success: function (response) {
+                    $(".result").empty();
+                    //reset the form after successful submit
+                    $("#add")[0].reset();
+                    let check = document.querySelectorAll('.checkbox');
+                    for(let k=0; k<check.length;k++){
+                        check[k].checked = false;
+                    }
+                    for (var item in response.data){
+                        let temp = response.data[item];
+                    let html = `<div class="border rounded-md flex items-center justify-between p-6">
+                                        <b>${temp.search_keyword}</b>
+                                        <b>Total Result: ${temp.search_results}</b>
+                                        <b>${temp.search_date}</b>
+                                    </div>`
+                    $(".result").append(html);
+                    }
+                    {#console.log(response.data)#}
+                },
+                error: function (response) {
+                    console.log(response)
+                }
+            });
+        });
+    </script>
+    <script src="{% static 'js/filter.js' %}"></script>
+{% endblock %}

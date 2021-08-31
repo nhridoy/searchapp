@@ -1,0 +1,27 @@
+<div class="container mx-auto">
+    <h2 class="text-xl font-semibold py-4">Filter Result</h2>
+    <div class="border checks rounded-md p-4 flex justify-around">
+        <div class="form-group">
+            <input type="checkbox" class="checkbox cursor-pointer" value="today" data-filter="today" id="today">
+            <label class="cursor-pointer" for="today">Today</label>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" class="checkbox cursor-pointer" value="yesterday" data-filter="yesterday" id="yesterday">
+            <label class="cursor-pointer" for="yesterday">Yesterday</label>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" class="checkbox cursor-pointer" value="all" data-filter="all" id="all">
+            <label class="cursor-pointer" for="all">All</label>
+        </div>
+    </div>
+    <hr class="pt-4">
+    <h2 class="text-xl">Or</h2>
+    <hr>
+    <h2 class="text-xl font-normal py-4">Filter By Date</h2>
+    <form id="add" method="POST">
+        <input type="date" name="startDate" class="px-2 py-2 border" required>
+        <input type="date" name="endDate" class="px-2 py-2 border" required>
+        {% csrf_token %}
+        <input type="submit" class="px-2 py-2 border cursor-pointer">
+    </form>
+</div>
