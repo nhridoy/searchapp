@@ -1,5 +1,6 @@
 <!doctype html>
 {% load static %}
+{% load pwa %}
 <html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
@@ -24,6 +25,7 @@
             }
         </style>
     {% endblock %}
+    {% progressive_web_app_meta %}
 </head>
 <body class="text-gray-800 text-sm transition tracking-wide min-h-full flex flex-col"
       style="font-family: 'Poppins', sans-serif;">
