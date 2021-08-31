@@ -11,6 +11,17 @@
 - Demo Password: `demodemo1234`
 - Or you can register with your own email and password.
 
+### Let me give you a quick overview of the project I've done.
+1. I have made a search engine for Movies and TV Shows.
+2. Users need to log in to use the service.
+3. User's search query is saved on the database.
+4. Users can view their search history.
+5. Users can filter their search history.
+6. Fully Responsive.
+7. I have used Tailwind CSS for the Design.
+8. Demo email: `demo@demo.com`
+9. Demo Password: `demodemo1234`
+
 ### Screenshots
 #### Homepage:
 ![img.png](img.png)
