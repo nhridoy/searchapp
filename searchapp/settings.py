@@ -26,7 +26,7 @@ MEDIA_DIR = BASE_DIR.joinpath('media')
 SECRET_KEY = 'django-insecure-gy0y_vjzo$_3wg$yk^o$#2i6x)$13^zyubw9r122bm74uw0n6k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'movie-and-tv.herokuapp.com']
 
@@ -47,46 +47,11 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_tailwind',
     'django_cleanup.apps.CleanupConfig',
-    'pwa',
 ]
 
 # Crispy Form Settings
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
-
-# PWA Settings
-PWA_SERVICE_WORKER_PATH = BASE_DIR.joinpath('static/js/serviceworker.js')
-PWA_APP_NAME = 'Movie And TV'
-PWA_APP_DESCRIPTION = "Search your favourite movies and tv shows."
-PWA_APP_THEME_COLOR = '#312e81'
-PWA_APP_BACKGROUND_COLOR = '#ffffff'
-PWA_APP_DISPLAY = 'standalone'
-PWA_APP_SCOPE = '/'
-PWA_APP_ORIENTATION = 'any'
-PWA_APP_START_URL = '/'
-PWA_APP_STATUS_BAR_COLOR = 'default'
-PWA_APP_ICONS = [
-    {
-        'src': '/static/images/favicon.svg',
-        'sizes': '160x160'
-    }
-]
-PWA_APP_ICONS_APPLE = [
-    {
-        'src': '/static/images/favicon.svg',
-        'sizes': '160x160'
-    }
-]
-PWA_APP_SPLASH_SCREEN = [
-    {
-        'src': '/static/images/icons/splash-640x1136.png',
-        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
-    }
-]
-PWA_APP_DIR = 'ltr'
-PWA_APP_LANG = 'en-US'
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
