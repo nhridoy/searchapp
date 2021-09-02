@@ -26,7 +26,7 @@ MEDIA_DIR = BASE_DIR.joinpath('media')
 SECRET_KEY = 'django-insecure-gy0y_vjzo$_3wg$yk^o$#2i6x)$13^zyubw9r122bm74uw0n6k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'movie-and-tv.herokuapp.com']
 
