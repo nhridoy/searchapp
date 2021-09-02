@@ -7,4 +7,4 @@ gunicorn
 pillow
 requests~=2.25.1
 crispy-tailwind
-# django-pwa
+django-pwa
