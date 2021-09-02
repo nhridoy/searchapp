@@ -10,13 +10,13 @@
     <div class="container mx-auto px-4">
         <h2 class="font-semibold text-xl py-4">All Searched Items</h2>
         <div class="flex flex-col gap-4 result">
-{#            {% for search in search_history %}#}
-{#                <div class="border rounded-md flex flex-col md:flex-row gap-2 items-center justify-between p-6">#}
-{#                    <b>{{ search.search_keyword }}</b>#}
-{#                    <b>Total Result: {{ search.search_results }}</b>#}
-{#                    <b>{{ search.search_date }}</b>#}
-{#                </div>#}
-{#            {% endfor %}#}
+            {% for search in search_history %}
+                <div class="border rounded-md flex flex-col md:flex-row gap-2 items-center justify-between p-6">
+                    <b>{{ search.search_keyword }}</b>
+                    <b>Total Result: {{ search.search_results }}</b>
+                    <b>{{ search.search_date }}</b>
+                </div>
+            {% endfor %}
         </div>
     </div>
 
