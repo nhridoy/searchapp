@@ -52,11 +52,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 def get_profile_images_filepath(self, filename):
-    return f"users/{self.pk}/{'profile-pic.png'}"
+    return f"users/{self.pk}/profile-pic.png"
 
 
 def default_profile_image():
-    return f"face1.jpg"
+    return "face1.jpg"
 
 
 # User Basic Info Model
