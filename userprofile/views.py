@@ -50,8 +50,7 @@ def loginView(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         username, password = request.POST.get('username'), request.POST.get('password')
-        user = authenticate(username=username, password=password)
-        if user:
+        if user := authenticate(username=username, password=password):
             login(request, user)
             return HttpResponseRedirect(reverse('searchapp:index'))
         else:
